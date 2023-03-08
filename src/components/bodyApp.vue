@@ -1,22 +1,31 @@
 <template>
-  {{myName}}
+  <div class="border bg-amber-500 rounded-2xl inline-block p-2" @click="getNews('us')">click me sempai</div>
+  1
 </template>
 
 <script>
-import {useCounterStore} from "@/stores/counter";
-import {toRefs} from "vue";
+import { useCounterStore } from '@/stores/counter'
+import { toRefs } from 'vue'
 
 export default {
   name: 'bodyApp',
-  setup(){
+  setup() {
     const store = useCounterStore()
-    const { myName } = toRefs(store)
+    const { newsList, getNews } = toRefs(store)
 
     return {
-      myName
+      newsList,
+      getNews
     }
+  },
+  methods: {
+    clickMe(){
+      console.log('ahhhhhh')
+    }
+  },
+  mounted() {
+    this.getNews()
   }
-
 }
 </script>
 

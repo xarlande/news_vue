@@ -1,14 +1,13 @@
 <template>
-  <BodyApp/>
+  <BodyApp />
 </template>
 
 <script>
-
-import {defineComponent} from "vue";
-import BodyApp from "@/components/bodyApp.vue";
+import { defineComponent } from 'vue'
+import BodyApp from '@/components/bodyApp.vue'
 
 export default defineComponent({
-  components: {BodyApp}
+  components: { BodyApp }
 })
 </script>
 
