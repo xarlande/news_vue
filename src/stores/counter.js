@@ -11,8 +11,8 @@ export const useCounterStore = defineStore('counter', {
       fetch(`${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`)
         .then((r) => r.json())
         .then((data) => {
-          this.newsList.push(data)
           console.log(data)
+          this.newsList = data.articles
         })
     }
   },
