@@ -1,14 +1,10 @@
 <template>
   <nav class="flex justify-center my-3">
-    <div
-      class="relative flex justify-center flex-col border p-2 gap-2 shadow shadow-gray-400 shadow-lg"
-    >
+    <div class="relative flex justify-center flex-col border p-2 gap-2">
       <div class="w-72 flex flex-col">
         <Listbox v-model="selectedPerson">
           <ListboxButton class="border">{{ dropDownName }} </ListboxButton>
-          <ListboxOptions
-            class="border my-1 absolute bg-white inset-y-1 inset-x-1"
-          >
+          <ListboxOptions class="border my-1 absolute bg-white top-1 inset-x-2">
             <ListboxOption
               v-for="person in country"
               :key="person.id"

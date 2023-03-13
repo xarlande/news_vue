@@ -2,7 +2,7 @@
   <div
     v-for="(item, idx) in newsList"
     :key="idx"
-    class="border rounded my-5 flex p-5 shadow shadow-gray-400 shadow-lg flex-col"
+    class="border rounded my-5 flex p-5 flex-col"
   >
     <img
       :src="
