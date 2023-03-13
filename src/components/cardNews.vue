@@ -2,7 +2,7 @@
   <div
     v-for="(item, idx) in newsList"
     :key="idx"
-    class="border rounded my-5 flex p-2 shadow shadow-gray-400 shadow-lg flex-col"
+    class="border rounded my-5 flex p-5 shadow shadow-gray-400 shadow-lg flex-col"
   >
     <img
       :src="
@@ -12,8 +12,11 @@
       alt="image"
     />
     <div class="flex flex-col">
-      {{ item.title }}
-      <div class="flex justify-end mr-3 gap-2">
+      <div class="my-3 text-center">
+        {{ item.title }}
+      </div>
+
+      <div class="flex justify-between mr-3 gap-2">
         <div class="text-center">
           <div>Час публікації: {{ item.time }}</div>
           <div>Дата публікації: {{ item.data }}</div>
