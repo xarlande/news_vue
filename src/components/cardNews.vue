@@ -51,9 +51,6 @@ export default {
     };
   },
   methods: {},
-  mounted() {
-    this.getNews();
-  },
 };
 </script>
 

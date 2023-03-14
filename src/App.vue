@@ -19,6 +19,9 @@ import SearchNews from "@/components/searchNews.vue";
 
 export default defineComponent({
   components: { SearchNews, cardNews },
+  mounted() {
+    this.getNews();
+  },
 });
 </script>
 

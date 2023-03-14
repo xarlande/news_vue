@@ -7,11 +7,13 @@ export const useNewsStore = defineStore("news", {
     newsList: [],
   }),
   actions: {
-    getNews(country = "ua", query = "") {
+    getNews(country, query) {
       if (query) {
-        this.getNewsFetch(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`);
+        return this.getNewsFetch(
+          `${apiUrl}/everything?q=${query}&apiKey=${apiKey}`
+        );
       } else {
-        this.getNewsFetch(
+        return this.getNewsFetch(
           `${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`
         );
       }
