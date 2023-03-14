@@ -36,5 +36,4 @@ export const useNewsStore = defineStore("news", {
       this.newsList.push({ title, url, urlToImage, data, time, description });
     },
   },
-  getters: {},
 });
