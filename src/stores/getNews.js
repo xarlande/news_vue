@@ -28,10 +28,10 @@ export const useNewsStore = defineStore("news", {
         });
     },
     destructObj(obj) {
-      const { title, url, urlToImage, publishedAt } = obj;
+      const { title, url, urlToImage, publishedAt, description } = obj;
       let [data, timeNoFormat] = publishedAt.split("T");
       const time = timeNoFormat.slice(0, -1);
-      this.newsList.push({ title, url, urlToImage, data, time });
+      this.newsList.push({ title, url, urlToImage, data, time, description });
     },
   },
   getters: {},

@@ -12,8 +12,12 @@
       alt="image"
     />
     <div class="flex flex-col">
-      <div class="my-3 text-center">
+      <div class="my-3 text-center text-lg">
         {{ item.title }}
+      </div>
+
+      <div class="my-3 text-center">
+        {{ item.description }}
       </div>
 
       <div class="flex justify-between mr-3 gap-2">

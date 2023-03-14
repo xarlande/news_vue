@@ -68,6 +68,8 @@ export default {
     country: [
       { id: 1, name: "Україна", value: "ua" },
       { id: 2, name: "США", value: "us" },
+      { id: 3, name: "Німеччина", value: "de" },
+      { id: 4, name: "Польща", value: "pl" },
     ],
     selectedPerson: {},
   }),
