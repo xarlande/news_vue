@@ -2,7 +2,7 @@
   <div
     v-for="(item, idx) in newsList"
     :key="idx"
-    class="border rounded my-5 flex p-5 flex-col"
+    class="border border-gray-300 rounded my-5 flex p-5 flex-col"
   >
     <img
       v-if="item.urlToImage"

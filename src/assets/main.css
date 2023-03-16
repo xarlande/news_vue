@@ -5,6 +5,14 @@
 .global_button {
   @apply bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-2xl inline-block p-2 cursor-pointer px-4 py-3;
 }
-body{
+body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  @apply text-gray-600 bg-gray-100;
+}
+input {
+  @apply bg-gray-100;
+}
+li {
+  @apply bg-gray-100;
 }

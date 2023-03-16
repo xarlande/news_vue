@@ -1,10 +1,16 @@
 <template>
   <nav class="flex justify-center my-3">
-    <div class="relative flex justify-center flex-col border p-2 gap-2">
+    <div
+      class="relative flex justify-center flex-col border border-gray-300 p-2 gap-2"
+    >
       <div class="w-72 flex flex-col">
         <Listbox v-model="selectedPerson">
-          <ListboxButton class="border">{{ dropDownName }} </ListboxButton>
-          <ListboxOptions class="border my-1 absolute bg-white top-1 inset-x-2">
+          <ListboxButton class="border border-gray-300"
+            >{{ dropDownName }}
+          </ListboxButton>
+          <ListboxOptions
+            class="border border-gray-300 my-1 absolute bg-white top-1 inset-x-2"
+          >
             <ListboxOption
               v-for="person in country"
               :key="person.id"
@@ -18,7 +24,7 @@
         <input
           type="text"
           placeholder="Пошук..."
-          class="border text-center my-1"
+          class="border border-gray-300 text-center my-1"
           v-model="searchInput"
           @keyup.enter="getNews(selectedPerson.value, searchInput)"
         />
