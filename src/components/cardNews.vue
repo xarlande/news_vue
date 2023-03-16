@@ -15,7 +15,7 @@
         {{ item.title }}
       </div>
 
-      <div class="my-3 text-center">
+      <div v-if="item.description" class="my-3 text-center">
         {{ item.description }}
       </div>
 
