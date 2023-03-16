@@ -12,22 +12,26 @@ export const useNewsStore = defineStore("news", {
         return this.getNewsFetch(
           `${apiUrl}/everything?q=${query}&apiKey=${apiKey}`
         );
-      } else {
+      }
+      if (country) {
         return this.getNewsFetch(
           `${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`
         );
       }
     },
     getNewsFetch(query) {
-      fetch(query)
-        .then((r) => r.json())
-        .then((data) => {
-          this.newsList = [];
-          const newsData = data.articles;
-          for (const item of newsData) {
-            this.destructObj(item);
-          }
-        });
+      if (query) {
+        console.log(query);
+        fetch(query)
+          .then((r) => r.json())
+          .then((data) => {
+            this.newsList = [];
+            const newsData = data.articles;
+            for (const item of newsData) {
+              this.destructObj(item);
+            }
+          });
+      }
     },
     destructObj(obj) {
       const { title, url, urlToImage, publishedAt, description } = obj;

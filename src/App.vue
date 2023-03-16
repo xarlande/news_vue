@@ -13,14 +13,23 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import cardNews from "@/components/cardNews.vue";
 import SearchNews from "@/components/searchNews.vue";
+import { useNewsStore } from "@/stores/getNews";
 
 export default defineComponent({
   components: { SearchNews, cardNews },
+  setup() {
+    const store = useNewsStore();
+    const { getNews } = toRefs(store);
+
+    return {
+      getNews,
+    };
+  },
   mounted() {
-    this.getNews();
+    this.getNews("ua");
   },
 });
 </script>

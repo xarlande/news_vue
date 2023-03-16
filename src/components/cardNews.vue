@@ -5,9 +5,8 @@
     class="border rounded my-5 flex p-5 flex-col"
   >
     <img
-      :src="
-        item.urlToImage ? item.urlToImage : 'https://via.placeholder.com/150'
-      "
+      v-if="item.urlToImage"
+      :src="item.urlToImage"
       class="h-72 mx-auto"
       alt="image"
     />
@@ -43,11 +42,10 @@ export default {
   name: "cardNews",
   setup() {
     const store = useNewsStore();
-    const { newsList, getNews } = toRefs(store);
+    const { newsList } = toRefs(store);
 
     return {
       newsList,
-      getNews,
     };
   },
   methods: {},
