@@ -9,7 +9,7 @@
     <main>
       <div class="text-center">
         <div v-if="requestStoreSearch.country">
-          Новини країни : "{{ requestStoreSearch.country }}"
+          Новини країни : {{ requestStoreSearch.country.toUpperCase() }}
         </div>
         <div v-if="requestStoreSearch.query">
           Ось новини за запитом "{{ requestStoreSearch.query }}"
