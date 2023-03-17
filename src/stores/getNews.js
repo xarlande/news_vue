@@ -5,15 +5,18 @@ const apiKey = "6bd4a18884a9402d81e67a053cbb9cac";
 export const useNewsStore = defineStore("news", {
   state: () => ({
     newsList: [],
+    requestStoreSearch: {},
   }),
   actions: {
     getNews(country, query) {
       if (query) {
+        this.requestStoreSearch = { query };
         return this.getNewsFetch(
           `${apiUrl}/everything?q=${query}&apiKey=${apiKey}`
         );
       }
       if (country) {
+        this.requestStoreSearch = { country };
         return this.getNewsFetch(
           `${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`
         );
@@ -21,8 +24,7 @@ export const useNewsStore = defineStore("news", {
     },
     getNewsFetch(query) {
       if (query) {
-        console.log(query);
-        fetch(query)
+        fetch(query, { method: "GET" })
           .then((r) => r.json())
           .then((data) => {
             this.newsList = [];

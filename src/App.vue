@@ -7,6 +7,15 @@
       <SearchNews />
     </nav>
     <main>
+      <div class="text-center">
+        <div v-if="requestStoreSearch.country">
+          Новини країни : "{{ requestStoreSearch.country }}"
+        </div>
+        <div v-if="requestStoreSearch.query">
+          Ось новини за запитом "{{ requestStoreSearch.query }}"
+        </div>
+      </div>
+
       <cardNews />
     </main>
   </div>
@@ -22,10 +31,11 @@ export default defineComponent({
   components: { SearchNews, cardNews },
   setup() {
     const store = useNewsStore();
-    const { getNews } = toRefs(store);
+    const { getNews, requestStoreSearch } = toRefs(store);
 
     return {
       getNews,
+      requestStoreSearch,
     };
   },
   mounted() {
