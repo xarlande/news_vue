@@ -92,7 +92,9 @@ export default {
       this.selectedCountry = {};
     },
     selectedCountry() {
-      this.getNews(this.selectedCountry.value);
+      setTimeout(() => {
+        this.getNews(this.selectedCountry.value);
+      }, 300);
     },
   },
 };
