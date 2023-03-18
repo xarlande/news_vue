@@ -1,13 +1,12 @@
 <template>
   <div class="border-b border-gray-300 text-center py-3 uppercase">
-    <div class="max-w-3xl mx-auto">News App</div>
+    <div class="max-w-3xl mx-auto cursor-default">News App</div>
   </div>
   <div class="max-w-3xl mx-auto p-2">
-    <nav>
-      <SearchNews />
-    </nav>
+    <SearchNews />
+
     <main>
-      <div class="text-center">
+      <div class="text-center cursor-default">
         <div v-if="requestStoreSearch.country">
           Новини країни : {{ requestStoreSearch.country.toUpperCase() }}
         </div>

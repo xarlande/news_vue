@@ -19,12 +19,12 @@
         {{ item.description }}
       </div>
 
-      <div class="flex justify-between mr-3 gap-2">
-        <div class="text-center">
+      <div class="flex flex-col md:flex-row justify-between mr-3 gap-2">
+        <div class="text-center cursor-default">
           <div>Час публікації: {{ item.time }}</div>
           <div>Дата публікації: {{ item.data }}</div>
         </div>
-        <div>
+        <div class="flex justify-end">
           <a class="global_button" v-bind:href="item.url" target="_blank"
             >Посилання</a
           >

@@ -1,10 +1,10 @@
 <template>
-  <nav class="flex justify-center my-3">
-    <div
+  <div class="flex justify-center my-3">
+    <nav
       class="relative flex justify-center flex-col border border-gray-300 p-2 gap-2"
     >
       <div class="w-72 flex flex-col">
-        <Listbox v-model="selectedPerson">
+        <Listbox v-model="selectedCountry">
           <ListboxButton class="border border-gray-300"
             >{{ dropDownName }}
           </ListboxButton>
@@ -26,20 +26,20 @@
           placeholder="Пошук..."
           class="border border-gray-300 text-center my-1"
           v-model="searchInput"
-          @keyup.enter="getNews(selectedPerson.value, searchInput)"
+          @keyup.enter="getNews(selectedCountry.value, searchInput)"
         />
       </div>
 
       <div class="flex justify-end">
-        <div
+        <button
           class="global_button"
-          @click="getNews(selectedPerson.value, searchInput)"
+          @click="getNews(selectedCountry.value, searchInput)"
         >
           Пошук
-        </div>
+        </button>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -77,19 +77,22 @@ export default {
       { id: 3, name: "Німеччина", value: "de" },
       { id: 4, name: "Польща", value: "pl" },
     ],
-    selectedPerson: {},
+    selectedCountry: {},
   }),
   computed: {
     dropDownName() {
-      return Object.keys(this.selectedPerson).length === 0
+      return Object.keys(this.selectedCountry).length === 0
         ? "Виберіть країну"
-        : `Ви обрали країну: ${this.selectedPerson.name}`;
+        : `Ви обрали країну: ${this.selectedCountry.name}`;
     },
   },
   watch: {
     newsList() {
       this.searchInput = "";
-      this.selectedPerson = {};
+      this.selectedCountry = {};
+    },
+    selectedCountry() {
+      this.getNews(this.selectedCountry.value);
     },
   },
 };
