@@ -62,11 +62,12 @@ export default {
   },
   setup() {
     const store = useNewsStore();
-    const { getNews, newsList } = toRefs(store);
+    const { getNews, newsList, loadingNews } = toRefs(store);
 
     return {
       getNews,
       newsList,
+      loadingNews,
     };
   },
   data: () => ({

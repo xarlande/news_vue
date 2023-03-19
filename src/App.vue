@@ -14,8 +14,10 @@
           Ось новини за запитом "{{ requestStoreSearch.query }}"
         </div>
       </div>
-
-      <CardNews />
+      <div class="min-h-[280px]" :class="{ spiner_flex: loadingNews }">
+        <LoadingSpiner v-if="loadingNews" />
+        <CardNews v-else />
+      </div>
     </main>
   </div>
 </template>
@@ -25,16 +27,18 @@ import { defineComponent, toRefs } from "vue";
 import CardNews from "@/components/cardNews.vue";
 import SearchNews from "@/components/searchNews.vue";
 import { useNewsStore } from "@/stores/getNews";
+import LoadingSpiner from "@/components/icon/loadingSpiner.vue";
 
 export default defineComponent({
-  components: { SearchNews, CardNews },
+  components: { LoadingSpiner, SearchNews, CardNews },
   setup() {
     const store = useNewsStore();
-    const { getNews, requestStoreSearch } = toRefs(store);
+    const { getNews, requestStoreSearch, loadingNews } = toRefs(store);
 
     return {
       getNews,
       requestStoreSearch,
+      loadingNews,
     };
   },
   mounted() {
@@ -43,4 +47,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.spiner_flex {
+  @apply flex justify-center items-center;
+}
+</style>

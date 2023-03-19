@@ -6,6 +6,7 @@ export const useNewsStore = defineStore("news", {
   state: () => ({
     newsList: [],
     requestStoreSearch: {},
+    loadingNews: false,
   }),
   actions: {
     getNews(country, query) {
@@ -26,11 +27,15 @@ export const useNewsStore = defineStore("news", {
         fetch(query, { method: "GET" })
           .then((r) => r.json())
           .then((data) => {
+            this.loadingNews = true;
             this.newsList = [];
             const newsData = data.articles;
             for (const item of newsData) {
               this.destructObj(item);
             }
+            setTimeout(() => {
+              this.loadingNews = false;
+            }, 1000);
           });
       }
     },
