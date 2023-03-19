@@ -14,7 +14,7 @@
           Ось новини за запитом "{{ requestStoreSearch.query }}"
         </div>
       </div>
-      <div class="min-h-[280px]" :class="{ spiner_flex: loadingNews }">
+      <div :class="{ spiner_flex: loadingNews }">
         <LoadingSpiner v-if="loadingNews" />
         <CardNews v-else />
       </div>
@@ -49,6 +49,6 @@ export default defineComponent({
 
 <style scoped>
 .spiner_flex {
-  @apply flex justify-center items-center;
+  @apply flex justify-center items-center h-[280px];
 }
 </style>
