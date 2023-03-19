@@ -1,5 +1,5 @@
 <template>
-  <div
+  <article
     v-for="(item, idx) in newsList"
     :key="idx"
     class="border border-gray-300 rounded my-5 flex p-5 flex-col"
@@ -11,18 +11,18 @@
       alt="image"
     />
     <div class="flex flex-col">
-      <div class="my-3 text-center text-lg">
+      <h2 class="my-3 text-center text-lg">
         {{ item.title }}
-      </div>
+      </h2>
 
-      <div v-if="item.description" class="my-3 text-center">
+      <p v-if="item.description" class="my-3 text-center">
         {{ item.description }}
-      </div>
+      </p>
 
       <div class="flex flex-col md:flex-row justify-between mr-3 gap-2">
         <div class="text-center cursor-default">
-          <div>Час публікації: {{ item.time }}</div>
-          <div>Дата публікації: {{ item.data }}</div>
+          <p>Час публікації: {{ item.time }}</p>
+          <p>Дата публікації: {{ item.data }}</p>
         </div>
         <div class="flex justify-end">
           <a class="global_button" v-bind:href="item.url" target="_blank"
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
