@@ -11,13 +11,12 @@ export const useNewsStore = defineStore("news", {
     getNews(country, query) {
       if (query) {
         this.requestStoreSearch = { query };
-        return this.getNewsFetch(
-          `${apiUrl}/everything?q=${query}&apiKey=${apiKey}`
-        );
+        this.getNewsFetch(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`);
+        return;
       }
       if (country) {
         this.requestStoreSearch = { country };
-        return this.getNewsFetch(
+        this.getNewsFetch(
           `${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`
         );
       }
