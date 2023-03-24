@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center my-3">
-    <nav
+    <div
       class="relative flex justify-center flex-col border border-gray-300 p-2 gap-2"
     >
       <div class="w-72 flex flex-col">
@@ -9,7 +9,7 @@
             >{{ dropDownName }}
           </ListboxButton>
           <ListboxOptions
-            class="border border-gray-300 my-1 absolute bg-white top-1 inset-x-2"
+            class="border border-gray-300 my-1 absolute top-1 inset-x-2"
           >
             <ListboxOption
               v-for="person in country"
@@ -38,7 +38,7 @@
           Пошук
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 </template>
 

@@ -1,54 +1,58 @@
 <template>
-  <header class="border-b border-gray-300 text-center py-3 uppercase">
-    <h1 class="max-w-3xl mx-auto cursor-default">News App</h1>
+  <header
+    class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-10 top-0 inset-x-0"
+  >
+    <div class="max-w-3xl mx-auto flex justify-between">
+      <router-link to="/" class="uppercase py-2 text-amber-600 text-xl"
+        >News App</router-link
+      >
+      <nav class="router flex">
+        <router-link class="border-r" to="/">Home</router-link>
+        <router-link to="/search">Search News</router-link>
+      </nav>
+    </div>
   </header>
-  <div class="max-w-3xl mx-auto p-2">
-    <SearchNews />
-
-    <main>
-      <div class="text-center cursor-default">
-        <div v-if="requestStoreSearch.country">
-          Новини країни : {{ requestStoreSearch.country.toUpperCase() }}
-        </div>
-        <div v-if="requestStoreSearch.query">
-          Ось новини за запитом "{{ requestStoreSearch.query }}"
-        </div>
-      </div>
-      <div :class="{ spiner_flex: loadingNews }">
-        <LoadingSpiner v-if="loadingNews" />
-        <CardNews v-else />
-      </div>
+  <div class="">
+    <main class="max-w-3xl mx-auto p-2 my-16">
+      <RouterView />
     </main>
   </div>
+  <footer
+    class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-10 bottom-0 inset-x-0"
+  >
+    <div class="max-w-3xl mx-auto">
+      Made by
+      <a
+        target="_blank"
+        class="text-amber-600 hover:text-amber-500"
+        href="https://github.com/xarlande"
+        >Bogdan Velgan</a
+      >
+    </div>
+  </footer>
 </template>
 
 <script>
 import { defineComponent, toRefs } from "vue";
-import CardNews from "@/components/cardNews.vue";
-import SearchNews from "@/components/searchNews.vue";
 import { useNewsStore } from "@/stores/getNews";
-import LoadingSpiner from "@/components/icon/loadingSpiner.vue";
 
 export default defineComponent({
-  components: { LoadingSpiner, SearchNews, CardNews },
   setup() {
-    const store = useNewsStore();
-    const { getNews, requestStoreSearch, loadingNews } = toRefs(store);
+    const storeNews = useNewsStore();
+    const { completeLoad } = toRefs(storeNews);
 
     return {
-      getNews,
-      requestStoreSearch,
-      loadingNews,
+      completeLoad,
     };
-  },
-  mounted() {
-    this.getNews("ua");
   },
 });
 </script>
 
 <style scoped>
-.spiner_flex {
-  @apply flex justify-center items-center h-[280px];
+.router .router-link-active {
+  @apply text-amber-600 hover:text-amber-600;
+}
+.router a {
+  @apply hover:text-amber-500 p-2;
 }
 </style>
