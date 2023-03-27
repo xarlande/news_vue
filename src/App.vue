@@ -2,7 +2,7 @@
   <header
     class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-10 top-0 inset-x-0"
   >
-    <div class="max-w-3xl mx-auto flex justify-between">
+    <div class="max-w-5xl mx-auto flex justify-between">
       <router-link to="/" class="uppercase py-2 text-amber-600 text-xl"
         >News App</router-link
       >
@@ -13,14 +13,14 @@
     </div>
   </header>
   <div class="">
-    <main class="max-w-3xl mx-auto p-2 my-16">
+    <main class="max-w-5xl mx-auto p-2 my-16">
       <RouterView />
     </main>
   </div>
   <footer
     class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-10 bottom-0 inset-x-0"
   >
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       Made by
       <a
         target="_blank"
