@@ -21,7 +21,7 @@
     class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-10 bottom-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto">
-      Made by
+      Created by
       <a
         target="_blank"
         class="text-amber-600 hover:text-amber-500"
