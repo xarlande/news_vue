@@ -44,9 +44,6 @@ export default defineComponent({
       this.getNews("ua");
     }
   },
-  unmounted() {
-    this.loadingNews = false;
-  },
 });
 </script>
 

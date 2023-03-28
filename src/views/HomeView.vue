@@ -1,22 +1,64 @@
 <template>
-  {{ loadingNews }}
+  <div class="my-5">
+    <p class="text-blue-500 text-center">Новини категорії: Технології</p>
+    <HomeNewsCard
+      class="my-2"
+      v-for="(item, idx) in newsTechnology"
+      :key="idx"
+      :item-new="item"
+    />
+  </div>
+  <div class="my-2">
+    <p class="text-blue-500 text-center">Новини категорії: Технології</p>
+    <HomeNewsCard
+      class="my-2"
+      v-for="(item, idx) in newsBusiness"
+      :key="idx"
+      :item-new="item"
+    />
+  </div>
+  <div class="my-2">
+    <p class="text-blue-500 text-center">Новини категорії: Технології</p>
+    <HomeNewsCard
+      class="my-2"
+      v-for="(item, idx) in newsPopular"
+      :key="idx"
+      :item-new="item"
+    />
+  </div>
+  <div class="my-2">
+    <p class="text-blue-500 text-center">Новини категорії: Технології</p>
+    <HomeNewsCard
+      class="my-2"
+      v-for="(item, idx) in newsSport"
+      :key="idx"
+      :item-new="item"
+    />
+  </div>
 </template>
-
 <script>
-import { toRefs } from "vue";
-import { useNewsStore } from "@/stores/getNews";
+import { defineComponent, toRefs } from "vue";
+import { useNewsHomePage } from "@/stores/getNewsHomePage";
+import HomeNewsCard from "@/components/HomeNewsCard.vue";
 
-export default {
-  name: "HomeView",
+export default defineComponent({
+  components: { HomeNewsCard },
   setup() {
-    const store = useNewsStore();
-    const { loadingNews } = toRefs(store);
+    const store = useNewsHomePage();
+    const { newsTechnology, newsBusiness, newsPopular, newsSport, getAllNews } =
+      toRefs(store);
 
     return {
-      loadingNews,
+      getAllNews,
+      newsTechnology,
+      newsSport,
+      newsBusiness,
+      newsPopular,
     };
   },
-};
+  mounted() {
+    this.getAllNews();
+  },
+});
 </script>
-
 <style scoped></style>

@@ -7,11 +7,12 @@
         to="/"
         class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center"
       >
-        <img class="h-8" src="./assets/icon-logo.png" alt="logo" />
+        <img class="h-8" src="/icon-logo.png" alt="logo" />
         News App</router-link
       >
       <nav class="router flex">
         <router-link class="border-r" to="/">Home</router-link>
+        <router-link class="border-r" to="/about">About us</router-link>
         <router-link to="/search">Search News</router-link>
       </nav>
     </div>
