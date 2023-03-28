@@ -15,7 +15,7 @@
               v-for="person in country"
               :key="person.id"
               :value="person"
-              class="cursor-pointer text-center hover:bg-amber-500"
+              class="cursor-pointer text-center hover:bg-blue-400 hover:text-white"
             >
               {{ person.name }}
             </ListboxOption>

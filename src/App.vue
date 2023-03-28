@@ -3,8 +3,12 @@
     class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-10 top-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto flex justify-between">
-      <router-link to="/" class="uppercase py-2 text-amber-600 text-xl"
-        >News App</router-link
+      <router-link
+        to="/"
+        class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center"
+      >
+        <img class="h-8" src="./assets/icon-logo.png" alt="logo" />
+        News App</router-link
       >
       <nav class="router flex">
         <router-link class="border-r" to="/">Home</router-link>
@@ -24,7 +28,7 @@
       Created by
       <a
         target="_blank"
-        class="text-amber-600 hover:text-amber-500"
+        class="text-blue-500 hover:text-blue-400"
         href="https://github.com/xarlande"
         >Bogdan Velgan</a
       >
@@ -50,9 +54,9 @@ export default defineComponent({
 
 <style scoped>
 .router .router-link-active {
-  @apply text-amber-600 hover:text-amber-600;
+  @apply text-blue-500 hover:text-blue-400;
 }
 .router a {
-  @apply hover:text-amber-500 p-2;
+  @apply hover:text-blue-400 p-2;
 }
 </style>
