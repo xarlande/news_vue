@@ -5,14 +5,30 @@
     <div class="max-w-5xl mx-auto flex justify-between">
       <router-link
         to="/"
-        class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center"
+        class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center z-10"
       >
         <img class="h-8" src="/icon-logo.png" alt="logo" />
         News App</router-link
       >
-      <nav class="router flex">
+      <nav class="max-sm:hidden router flex">
         <router-link class="border-r" to="/">Home</router-link>
         <router-link class="border-r" to="/about">About us</router-link>
+        <router-link to="/search">Search News</router-link>
+      </nav>
+      <div
+        class="flex sm:hidden items-center z-10"
+        @click="burgerOpen = !burgerOpen"
+      >
+        <BurgerBtnClose v-if="burgerOpen" />
+        <BurgerBtn v-else />
+      </div>
+      <nav
+        v-if="burgerOpen"
+        @click="burgerOpen = false"
+        class="router bg-gray-100 flex flex-col justify-center items-center fixed inset-x-0 inset-y-0 z-0 text-xl gap-5"
+      >
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About us</router-link>
         <router-link to="/search">Search News</router-link>
       </nav>
     </div>
@@ -40,8 +56,11 @@
 <script>
 import { defineComponent, toRefs } from "vue";
 import { useNewsStore } from "@/stores/getNews";
+import BurgerBtn from "@/components/icon/burgerBtn.vue";
+import BurgerBtnClose from "@/components/icon/burgerBtnClose.vue";
 
 export default defineComponent({
+  components: { BurgerBtnClose, BurgerBtn },
   setup() {
     const storeNews = useNewsStore();
     const { completeLoad } = toRefs(storeNews);
@@ -49,6 +68,16 @@ export default defineComponent({
     return {
       completeLoad,
     };
+  },
+  data: () => ({ burgerOpen: false }),
+  watch: {
+    burgerOpen() {
+      if (this.burgerOpen) {
+        document.body.classList.add("overflow-hidden");
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
+    },
   },
 });
 </script>
