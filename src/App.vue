@@ -1,6 +1,6 @@
 <template>
   <header
-    class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-10 top-0 inset-x-0"
+    class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-20 top-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto flex justify-between">
       <router-link
@@ -22,24 +22,24 @@
         <BurgerBtnClose v-if="burgerOpen" />
         <BurgerBtn v-else />
       </div>
-      <nav
-        v-if="burgerOpen"
-        @click="burgerOpen = false"
-        class="router bg-gray-100 flex flex-col justify-center items-center fixed inset-x-0 inset-y-0 z-0 text-xl gap-5"
-      >
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About us</router-link>
-        <router-link to="/search">Search News</router-link>
-      </nav>
     </div>
   </header>
+  <nav
+    v-if="burgerOpen"
+    @click="burgerOpen = false"
+    class="router bg-gray-100 flex flex-col justify-center items-center fixed inset-x-0 z-10 inset-y-0 text-xl gap-5"
+  >
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About us</router-link>
+    <router-link to="/search">Search News</router-link>
+  </nav>
   <div class="">
     <main class="max-w-5xl mx-auto p-2 my-16">
       <RouterView />
     </main>
   </div>
   <footer
-    class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-10 bottom-0 inset-x-0"
+    class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-20 bottom-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto">
       Created by
