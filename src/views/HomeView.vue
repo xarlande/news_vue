@@ -1,6 +1,6 @@
 <template>
   <div class="mt-5">
-    <p class="text-blue-500 text-center">Новини категорії: Технології</p>
+    <p class="text-blue-500 text-center text-xl">Новини категорії: Технології</p>
     <HomeNewsCard
       class="my-2"
       v-for="(item, idx) in newsTechnology"
@@ -9,7 +9,7 @@
     />
   </div>
   <div class="my-2">
-    <p class="text-blue-500 text-center">Новини категорії: Бізнес</p>
+    <p class="text-blue-500 text-center text-xl">Новини категорії: Бізнес</p>
     <HomeNewsCard
       class="my-2"
       v-for="(item, idx) in newsBusiness"
@@ -18,7 +18,7 @@
     />
   </div>
   <div class="my-2">
-    <p class="text-blue-500 text-center">Новини категорії: Популярні</p>
+    <p class="text-blue-500 text-center text-xl">Новини категорії: Популярні</p>
     <HomeNewsCard
       class="my-2"
       v-for="(item, idx) in newsPopular"
@@ -27,7 +27,7 @@
     />
   </div>
   <div class="my-2">
-    <p class="text-blue-500 text-center">Новини категорії: Спорт</p>
+    <p class="text-blue-500 text-center text-xl">Новини категорії: Спорт</p>
     <HomeNewsCard
       class="my-2"
       v-for="(item, idx) in newsSport"
