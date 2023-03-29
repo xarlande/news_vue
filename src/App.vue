@@ -5,7 +5,7 @@
     <div class="max-w-5xl mx-auto flex justify-between">
       <router-link
         to="/"
-        class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center z-10"
+        class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center"
       >
         <img class="h-8" src="/icon-logo.png" alt="logo" />
         News App</router-link
@@ -16,7 +16,7 @@
         <router-link to="/search">Search News</router-link>
       </nav>
       <div
-        class="flex sm:hidden items-center z-10"
+        class="flex sm:hidden items-center mr-2.5"
         @click="burgerOpen = !burgerOpen"
       >
         <BurgerBtnClose v-if="burgerOpen" />

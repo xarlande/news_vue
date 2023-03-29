@@ -1,6 +1,8 @@
 <template>
   <div class="mt-5">
-    <p class="text-blue-500 text-center text-xl">Новини категорії: Технології</p>
+    <p class="text-blue-500 text-center text-xl">
+      Новини категорії: Технології
+    </p>
     <HomeNewsCard
       class="my-2"
       v-for="(item, idx) in newsTechnology"
