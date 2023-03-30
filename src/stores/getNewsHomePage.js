@@ -23,10 +23,6 @@ export const useNewsHomePage = defineStore("HomeNews", {
         .then((r) => r.json())
         .then((data) => {
           this.newsTechnology = data.articles;
-        })
-        .catch((i) => {
-          console.log(i);
-          this.newsTechnology = [];
         });
     },
     getNewsSport() {
