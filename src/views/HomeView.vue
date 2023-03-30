@@ -3,7 +3,10 @@
     <p class="text-blue-500 text-center text-xl">
       Новини категорії: Технології
     </p>
-    <div v-if="newsTechnology.length">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"
+      v-if="newsTechnology.length"
+    >
       <HomeNewsCard
         class="my-2"
         v-for="(item, idx) in newsTechnology"
@@ -15,7 +18,10 @@
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Бізнес</p>
-    <div v-if="newsBusiness.length">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"
+      v-if="newsBusiness.length"
+    >
       <HomeNewsCard
         class="my-2"
         v-for="(item, idx) in newsBusiness"
@@ -27,7 +33,10 @@
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Популярні</p>
-    <div v-if="newsPopular.length">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"
+      v-if="newsPopular.length"
+    >
       <HomeNewsCard
         class="my-2"
         v-for="(item, idx) in newsPopular"
@@ -39,7 +48,10 @@
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Спорт</p>
-    <div v-if="newsSport.length">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"
+      v-if="newsSport.length"
+    >
       <HomeNewsCard
         class="my-2"
         v-for="(item, idx) in newsSport"

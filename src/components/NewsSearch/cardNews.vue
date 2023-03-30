@@ -2,7 +2,7 @@
   <article
     v-for="(item, idx) in newsList"
     :key="idx"
-    class="border border-gray-300 rounded my-5 flex p-5 flex-col"
+    class="border border-gray-300 rounded my-5 p-5"
   >
     <img
       v-if="item.urlToImage"
@@ -24,7 +24,7 @@
           <p>Час публікації: {{ item.time }}</p>
           <p>Дата публікації: {{ item.data }}</p>
         </div>
-        <div class="flex justify-end">
+        <div>
           <a class="global_button" v-bind:href="item.url" target="_blank"
             >Посилання</a
           >
