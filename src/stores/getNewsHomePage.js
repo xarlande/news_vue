@@ -24,7 +24,10 @@ export const useNewsHomePage = defineStore("HomeNews", {
         .then((data) => {
           this.newsTechnology = data.articles;
         })
-        .catch(console.log("error"));
+        .catch((i) => {
+          console.log("error");
+          this.newsTechnology = [];
+        });
     },
     getNewsSport() {
       fetch(
