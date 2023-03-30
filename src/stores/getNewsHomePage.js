@@ -25,7 +25,7 @@ export const useNewsHomePage = defineStore("HomeNews", {
           this.newsTechnology = data.articles;
         })
         .catch((i) => {
-          console.log("error");
+          console.log(i);
           this.newsTechnology = [];
         });
     },
