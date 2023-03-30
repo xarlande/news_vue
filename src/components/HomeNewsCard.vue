@@ -1,5 +1,5 @@
 <template>
-  <div class="hover:underline mx-auto border relative p-3">
+  <div class="hover:underline mx-auto border rounded relative p-3">
     <img
       v-if="itemNew.urlToImage"
       class="mx-auto"
