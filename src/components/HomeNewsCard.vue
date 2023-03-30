@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto border relative p-3 w-3/4">
+  <div class="hover:underline mx-auto border relative p-3 w-3/4">
     <div>
       <p class="text-center mb-4">Джерело: {{ itemNew.author }}</p>
       <p>{{ itemNew.title }}</p>

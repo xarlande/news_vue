@@ -3,39 +3,51 @@
     <p class="text-blue-500 text-center text-xl">
       Новини категорії: Технології
     </p>
-    <HomeNewsCard
-      class="my-2"
-      v-for="(item, idx) in newsTechnology"
-      :key="idx"
-      :item-new="item"
-    />
+    <div v-if="newsTechnology.length">
+      <HomeNewsCard
+        class="my-2"
+        v-for="(item, idx) in newsTechnology"
+        :key="idx"
+        :item-new="item"
+      />
+    </div>
+    <div class="text-center text-sm my-5" v-else>Пусто</div>
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Бізнес</p>
-    <HomeNewsCard
-      class="my-2"
-      v-for="(item, idx) in newsBusiness"
-      :key="idx"
-      :item-new="item"
-    />
+    <div v-if="newsBusiness.length">
+      <HomeNewsCard
+        class="my-2"
+        v-for="(item, idx) in newsBusiness"
+        :key="idx"
+        :item-new="item"
+      />
+    </div>
+    <div class="text-center text-sm my-5" v-else>Пусто</div>
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Популярні</p>
-    <HomeNewsCard
-      class="my-2"
-      v-for="(item, idx) in newsPopular"
-      :key="idx"
-      :item-new="item"
-    />
+    <div v-if="newsPopular.length">
+      <HomeNewsCard
+        class="my-2"
+        v-for="(item, idx) in newsPopular"
+        :key="idx"
+        :item-new="item"
+      />
+    </div>
+    <div class="text-center text-sm my-5" v-else>Пусто</div>
   </div>
   <div class="my-2">
     <p class="text-blue-500 text-center text-xl">Новини категорії: Спорт</p>
-    <HomeNewsCard
-      class="my-2"
-      v-for="(item, idx) in newsSport"
-      :key="idx"
-      :item-new="item"
-    />
+    <div v-if="newsSport.length">
+      <HomeNewsCard
+        class="my-2"
+        v-for="(item, idx) in newsSport"
+        :key="idx"
+        :item-new="item"
+      />
+    </div>
+    <div class="text-center text-sm my-5" v-else>Пусто</div>
   </div>
 </template>
 <script>

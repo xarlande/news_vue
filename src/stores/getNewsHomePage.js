@@ -23,37 +23,31 @@ export const useNewsHomePage = defineStore("HomeNews", {
         .then((r) => r.json())
         .then((data) => {
           this.newsTechnology = data.articles;
-          console.log(`Technology: ${data.articles}`);
         });
     },
     getNewsSport() {
       fetch(
-        `${apiUrl}/top-headlines?country=ua&category=technology&apiKey=${apiKey}`
+        `${apiUrl}/top-headlines?country=ua&category=sport&apiKey=${apiKey}`
       )
         .then((r) => r.json())
         .then((data) => {
           this.newsSport = data.articles;
-          console.log(`Sport: ${data.articles}`);
         });
     },
     getNewsBusiness() {
       fetch(
-        `${apiUrl}/top-headlines?country=ua&category=technology&apiKey=${apiKey}`
+        `${apiUrl}/top-headlines?country=ua&category=business&apiKey=${apiKey}`
       )
         .then((r) => r.json())
         .then((data) => {
           this.newsBusiness = data.articles;
-          console.log(`Business: ${data.articles}`);
         });
     },
     getNewsPopular() {
-      fetch(
-        `${apiUrl}/top-headlines?country=ua&category=technology&apiKey=${apiKey}`
-      )
+      fetch(`${apiUrl}/top-headlines?country=ua&apiKey=${apiKey}`)
         .then((r) => r.json())
         .then((data) => {
           this.newsPopular = data.articles;
-          console.log(`Popular: ${data.articles}`);
         });
     },
   },
