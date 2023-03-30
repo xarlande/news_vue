@@ -24,7 +24,7 @@
           <p>Час публікації: {{ item.time }}</p>
           <p>Дата публікації: {{ item.data }}</p>
         </div>
-        <div>
+        <div class="flex justify-end">
           <a class="global_button" v-bind:href="item.url" target="_blank"
             >Посилання</a
           >

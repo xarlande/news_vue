@@ -6,10 +6,8 @@
       :src="itemNew.urlToImage"
       alt="img"
     />
-    <div class="my-2">
-      <p class="text-center mb-4" v-if="itemNew.author">
-        Автор: {{ itemNew.author }}
-      </p>
+    <div class="my-2 text-center">
+      <p class="mb-4" v-if="itemNew.author">Автор: {{ itemNew.author }}</p>
       <p>{{ itemNew.title }}</p>
     </div>
     <a class="inset-0 absolute" :href="itemNew.url" target="_blank"> </a>
