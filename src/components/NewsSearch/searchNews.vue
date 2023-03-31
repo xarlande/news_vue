@@ -1,15 +1,15 @@
 <template>
   <div class="flex justify-center my-3">
     <div
-      class="relative flex justify-center flex-col border border-gray-300 p-2 gap-2"
+      class="relative flex justify-center flex-col border rounded border-gray-300 p-2 gap-2"
     >
       <div class="w-72 flex flex-col">
         <Listbox v-model="selectedCountry">
-          <ListboxButton class="border border-gray-300"
+          <ListboxButton class="border rounded border-gray-300"
             >{{ dropDownName }}
           </ListboxButton>
           <ListboxOptions
-            class="border border-gray-300 my-1 absolute top-1 inset-x-2"
+            class="border rounded border-gray-300 my-1 absolute top-1 inset-x-2"
           >
             <ListboxOption
               v-for="person in country"
@@ -24,7 +24,7 @@
         <input
           type="text"
           placeholder="Пошук..."
-          class="border border-gray-300 text-center my-1"
+          class="border rounded border-gray-300 text-center my-1"
           v-model="searchInput"
           @keyup.enter="getNews(selectedCountry.value, searchInput)"
         />
