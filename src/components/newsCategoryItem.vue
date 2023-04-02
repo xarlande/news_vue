@@ -2,10 +2,12 @@
   <p class="text-blue-500 text-center text-xl">
     Новини категорії: {{ categoriesName }}
   </p>
-  <div class="news-grid" v-if="Object.keys(dataCard).length">
+  <div class="text-center text-sm my-5" v-if="!Object.keys(dataCard).length">
+    Пусто
+  </div>
+  <div class="news-grid" v-else>
     <HomeNewsCard v-for="(item, idx) in dataCard" :key="idx" :item-new="item" />
   </div>
-  <div class="text-center text-sm my-5" v-else>Пусто</div>
 </template>
 
 <script>
