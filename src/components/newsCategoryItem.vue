@@ -15,6 +15,7 @@
       />
     </div>
   </div>
+  <p v-else>Немає зв'язку з сервером</p>
 </template>
 
 <script>
