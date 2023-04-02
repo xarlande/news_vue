@@ -15,7 +15,7 @@
       />
     </div>
   </div>
-  <p v-else>Немає зв'язку з сервером</p>
+  <p class="text-center" v-else>Немає зв'язку з сервером</p>
 </template>
 
 <script>
