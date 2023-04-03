@@ -2,7 +2,7 @@
   <article
     v-for="(item, idx) in newsList"
     :key="idx"
-    class="border border-gray-300 rounded my-5 p-5"
+    class="border border-gray-300 rounded my-5 p-5 shadow-md"
   >
     <img
       v-if="item.urlToImage"

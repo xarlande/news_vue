@@ -9,6 +9,7 @@
       v-else
     >
       <HomeNewsCard
+        class="shadow-md"
         v-for="(item, idx) in dataCard"
         :key="idx"
         :item-new="item"

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="border-b border-gray-300 bg-gray-100 text-center p-3 fixed z-20 top-0 inset-x-0"
+    class="border-b border-gray-300 base_color_background text-center p-3 fixed z-20 top-0 inset-x-0 shadow-md"
   >
     <div class="max-w-5xl mx-auto flex justify-between">
       <router-link
@@ -27,19 +27,19 @@
   <nav
     v-if="burgerOpen"
     @click="burgerOpen = false"
-    class="router bg-gray-100 flex flex-col justify-center items-center fixed inset-x-0 z-10 inset-y-0 text-xl gap-5"
+    class="router base_color_background flex flex-col justify-center items-center fixed inset-x-0 z-10 inset-y-0 text-xl gap-5"
   >
     <router-link to="/">Home</router-link>
     <router-link to="/about">About us</router-link>
     <router-link to="/search">Search News</router-link>
   </nav>
   <div class="">
-    <main class="max-w-5xl mx-auto p-2 my-16">
+    <main class="max-w-5xl mx-auto p-2 my-20">
       <RouterView />
     </main>
   </div>
   <footer
-    class="bg-gray-100 border-t border-gray-300 w-full p-5 text-right fixed z-20 bottom-0 inset-x-0"
+    class="base_color_background border-t border-gray-300 w-full p-5 text-right fixed z-20 bottom-0 inset-x-0 shadow-inner"
   >
     <div class="max-w-5xl mx-auto">
       Created by
@@ -82,7 +82,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .router .router-link-active {
   @apply text-blue-500 hover:text-blue-400;
 }
