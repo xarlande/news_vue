@@ -1,6 +1,6 @@
 <template>
   <header
-    class="border-b border-gray-300 base_color_background text-center p-3 fixed z-20 top-0 inset-x-0 shadow-md"
+    class="border-b border-gray-300 base_color_background text-center p-3 fixed z-20 top-0 inset-x-0 shadow"
   >
     <div class="max-w-5xl mx-auto flex justify-between">
       <router-link
@@ -8,7 +8,7 @@
         class="uppercase py-2 text-blue-500 text-xl flex gap-2 items-center"
       >
         <img class="h-8" src="/icon-logo.png" alt="logo" />
-        News App</router-link
+        <h1>News App</h1></router-link
       >
       <nav class="max-sm:hidden router flex">
         <router-link class="border-r" to="/">Home</router-link>
@@ -39,7 +39,7 @@
     </main>
   </div>
   <footer
-    class="base_color_background border-t border-gray-300 w-full p-5 text-right fixed z-20 bottom-0 inset-x-0 shadow-inner"
+    class="base_color_background border-t border-gray-300 w-full p-2 text-right fixed z-20 bottom-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto">
       Created by

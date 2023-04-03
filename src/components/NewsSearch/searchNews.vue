@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center my-3">
     <div
-      class="relative flex justify-center flex-col border rounded border-gray-300 p-2 gap-2 shadow-md"
+      class="relative flex justify-center flex-col border rounded border-gray-300 p-2 gap-2 shadow"
     >
       <div class="w-72 flex flex-col">
         <Listbox v-model="selectedCountry">
