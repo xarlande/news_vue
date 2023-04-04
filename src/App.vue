@@ -82,10 +82,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="postcss">
+<style scoped>
 .router .router-link-active {
   @apply text-blue-500 hover:text-blue-400;
 }
+
 .router a {
   @apply hover:text-blue-400 p-2;
 }
