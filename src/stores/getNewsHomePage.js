@@ -24,6 +24,9 @@ export const useNewsHomePage = defineStore("HomeNews", {
           if (data.status === "ok") {
             this[stateKey] = data.articles;
           }
+        })
+        .catch((data) => {
+          console.log(`error ${data}`);
         });
     },
   },
