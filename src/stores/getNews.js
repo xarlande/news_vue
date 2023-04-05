@@ -31,15 +31,17 @@ export const useNewsStore = defineStore("news", {
         fetch(query, { method: "GET" })
           .then((r) => r.json())
           .then((data) => {
-            this.loadingNews = true;
-            this.newsList = [];
-            const newsData = data.articles;
-            for (const item of newsData) {
-              this.destructObj(item);
+            if (data.status === "ok") {
+              this.loadingNews = true;
+              this.newsList = [];
+              const newsData = data.articles;
+              for (const item of newsData) {
+                this.destructObj(item);
+              }
+              setTimeout(() => {
+                this.loadingNews = false;
+              }, 1000);
             }
-            setTimeout(() => {
-              this.loadingNews = false;
-            }, 1000);
           });
       }
     },

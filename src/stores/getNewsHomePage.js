@@ -21,7 +21,9 @@ export const useNewsHomePage = defineStore("HomeNews", {
       )
         .then((r) => r.json())
         .then((data) => {
-          this[stateKey] = data.articles;
+          if (data.status === "ok") {
+            this[stateKey] = data.articles;
+          }
         });
     },
   },
