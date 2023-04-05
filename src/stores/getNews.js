@@ -42,6 +42,9 @@ export const useNewsStore = defineStore("news", {
                 this.loadingNews = false;
               }, 1000);
             }
+          })
+          .catch((data) => {
+            console.log(`error ${data}`);
           });
       }
     },
