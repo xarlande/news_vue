@@ -53,32 +53,19 @@
   </footer>
 </template>
 
-<script>
-import { defineComponent, toRefs } from "vue";
-import { useNewsStore } from "@/stores/getNews";
+<script setup>
+import { ref, watch } from "vue";
 import BurgerBtn from "@/components/icon/burgerBtn.vue";
 import BurgerBtnClose from "@/components/icon/burgerBtnClose.vue";
 
-export default defineComponent({
-  components: { BurgerBtnClose, BurgerBtn },
-  setup() {
-    const storeNews = useNewsStore();
-    const { completeLoad } = toRefs(storeNews);
+const burgerOpen = ref(false);
 
-    return {
-      completeLoad,
-    };
-  },
-  data: () => ({ burgerOpen: false }),
-  watch: {
-    burgerOpen() {
-      if (this.burgerOpen) {
-        document.body.classList.add("overflow-hidden");
-      } else {
-        document.body.classList.remove("overflow-hidden");
-      }
-    },
-  },
+watch(burgerOpen, () => {
+  if (burgerOpen.value) {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
 });
 </script>
 
