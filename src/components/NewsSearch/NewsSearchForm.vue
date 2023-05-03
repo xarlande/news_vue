@@ -57,10 +57,10 @@ const { getNews } = store;
 const { newsList } = toRefs(store);
 
 const country = [
-  { id: 1, name: "Україна", value: "ua" },
-  { id: 2, name: "США", value: "us" },
-  { id: 3, name: "Німеччина", value: "de" },
-  { id: 4, name: "Польща", value: "pl" },
+  { id: 1, name: "Україна", IsoForm: "ua" },
+  { id: 2, name: "США", IsoForm: "us" },
+  { id: 3, name: "Німеччина", IsoForm: "de" },
+  { id: 4, name: "Польща", IsoForm: "pl" },
 ];
 
 const searchInput = ref("");
@@ -78,7 +78,7 @@ watch(newsList, () => {
 });
 watch(selectedCountry, () => {
   setTimeout(() => {
-    getNews(selectedCountry.value.value);
+    getNews(selectedCountry.value.IsoForm);
   }, 300);
 });
 </script>
