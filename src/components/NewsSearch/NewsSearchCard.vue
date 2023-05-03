@@ -34,22 +34,12 @@
   </article>
 </template>
 
-<script>
-import { useNewsStore } from "@/stores/getNews";
+<script setup>
+import { useNewsStore } from "@/stores/getNewsForSearch";
 import { toRefs } from "vue";
 
-export default {
-  name: "cardNews",
-  setup() {
-    const store = useNewsStore();
-    const { newsList } = toRefs(store);
-
-    return {
-      newsList,
-    };
-  },
-  methods: {},
-};
+const store = useNewsStore();
+const { newsList } = toRefs(store);
 </script>
 
 <style scoped></style>

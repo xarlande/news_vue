@@ -28,15 +28,3 @@
     </li>
   </ul>
 </template>
-
-<script>
-export default {
-  name: "HomeView",
-};
-</script>
-
-<style scoped>
-p {
-  @apply my-2;
-}
-</style>

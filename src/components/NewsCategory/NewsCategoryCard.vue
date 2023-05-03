@@ -15,15 +15,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HomeNewsCard",
-  props: {
-    itemNew: {
-      type: Object,
-    },
+<script setup>
+defineProps({
+  itemNew: {
+    type: Object,
+    default: () => {},
   },
-};
+});
 </script>
 
 <style scoped></style>

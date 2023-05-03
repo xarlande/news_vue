@@ -1,5 +1,5 @@
 <template>
-  <SearchNews />
+  <NewsSearchForm />
 
   <main>
     <div class="text-center cursor-default">
@@ -10,45 +10,32 @@
         Ось новини за запитом "{{ requestStoreSearch.query }}"
       </div>
     </div>
-    <div :class="{ spiner_flex: loadingNews }">
-      <LoadingSpiner v-if="loadingNews" />
-      <CardNews v-else />
+    <div :class="{ spinner_flex: loadingNews }">
+      <LoadingSpinner v-if="loadingNews" />
+      <NewsSearchCard v-else />
     </div>
   </main>
 </template>
 
-<script>
-import { toRefs, defineComponent } from "vue";
-import SearchNews from "@/components/NewsSearch/searchNews.vue";
-import LoadingSpiner from "@/components/icon/loadingSpiner.vue";
-import CardNews from "@/components/NewsSearch/cardNews.vue";
-import { useNewsStore } from "@/stores/getNews";
+<script setup>
+import { onMounted, toRefs } from "vue";
+import NewsSearchForm from "@/components/NewsSearch/NewsSearchForm.vue";
+import LoadingSpinner from "@/components/icon/loadingSpinner.vue";
+import NewsSearchCard from "@/components/NewsSearch/NewsSearchCard.vue";
+import { useNewsStore } from "@/stores/getNewsForSearch";
 
-export default defineComponent({
-  name: "SearchView",
-  components: { CardNews, LoadingSpiner, SearchNews },
-  setup() {
-    const store = useNewsStore();
-    const { getNews, requestStoreSearch, loadingNews, newsList } =
-      toRefs(store);
+const store = useNewsStore();
+const { requestStoreSearch, loadingNews, newsList } = toRefs(store);
 
-    return {
-      getNews,
-      requestStoreSearch,
-      loadingNews,
-      newsList,
-    };
-  },
-  mounted() {
-    if (!this.newsList.length) {
-      this.getNews("ua");
-    }
-  },
+onMounted(() => {
+  if (!newsList.value.length) {
+    store.getNews("ua");
+  }
 });
 </script>
 
 <style scoped>
-.spiner_flex {
+.spinner_flex {
   @apply flex justify-center items-center min-h-[300px];
 }
 </style>

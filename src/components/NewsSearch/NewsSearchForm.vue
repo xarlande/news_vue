@@ -42,9 +42,9 @@
   </div>
 </template>
 
-<script>
-import { toRefs } from "vue";
-import { useNewsStore } from "@/stores/getNews";
+<script setup>
+import { computed, ref, toRefs, watch } from "vue";
+import { useNewsStore } from "@/stores/getNewsForSearch";
 import {
   Listbox,
   ListboxButton,
@@ -52,53 +52,35 @@ import {
   ListboxOptions,
 } from "@headlessui/vue";
 
-export default {
-  name: "searchNews",
-  components: {
-    ListboxOptions,
-    ListboxOption,
-    ListboxButton,
-    Listbox,
-  },
-  setup() {
-    const store = useNewsStore();
-    const { getNews, newsList, loadingNews } = toRefs(store);
+const store = useNewsStore();
+const { getNews } = store;
+const { newsList } = toRefs(store);
 
-    return {
-      getNews,
-      newsList,
-      loadingNews,
-    };
-  },
-  data: () => ({
-    searchInput: "",
-    country: [
-      { id: 1, name: "Україна", value: "ua" },
-      { id: 2, name: "США", value: "us" },
-      { id: 3, name: "Німеччина", value: "de" },
-      { id: 4, name: "Польща", value: "pl" },
-    ],
-    selectedCountry: {},
-  }),
-  computed: {
-    dropDownName() {
-      return Object.keys(this.selectedCountry).length === 0
-        ? "Виберіть країну"
-        : `Ви обрали країну: ${this.selectedCountry.name}`;
-    },
-  },
-  watch: {
-    newsList() {
-      this.searchInput = "";
-      this.selectedCountry = {};
-    },
-    selectedCountry() {
-      setTimeout(() => {
-        this.getNews(this.selectedCountry.value);
-      }, 300);
-    },
-  },
-};
+const country = [
+  { id: 1, name: "Україна", value: "ua" },
+  { id: 2, name: "США", value: "us" },
+  { id: 3, name: "Німеччина", value: "de" },
+  { id: 4, name: "Польща", value: "pl" },
+];
+
+const searchInput = ref("");
+const selectedCountry = ref({});
+
+const dropDownName = computed(() => {
+  return Object.keys(selectedCountry.value).length === 0
+    ? "Виберіть країну"
+    : `Ви обрали країну: ${selectedCountry.value.name}`;
+});
+
+watch(newsList, () => {
+  searchInput.value = "";
+  selectedCountry.value = "";
+});
+watch(selectedCountry, () => {
+  setTimeout(() => {
+    getNews(selectedCountry.value.value);
+  }, 300);
+});
 </script>
 
 <style scoped></style>

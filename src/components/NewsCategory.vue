@@ -16,14 +16,19 @@
   </div>
 </template>
 
-<script>
-import HomeNewsCard from "@/components/newsCategoryItem/homeNewsCard.vue";
+<script setup>
+import HomeNewsCard from "@/components/NewsCategory/NewsCategoryCard.vue";
 
-export default {
-  name: "newsCategoryItem",
-  components: { HomeNewsCard },
-  props: { categoriesName: { type: String }, dataCard: { type: Array } },
-};
+defineProps({
+  categoriesName: {
+    type: String,
+    default: "",
+  },
+  dataCard: {
+    type: Array,
+    default: () => [],
+  },
+});
 </script>
 
 <style scoped></style>

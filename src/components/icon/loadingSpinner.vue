@@ -19,11 +19,3 @@
     <span class="sr-only">Loading...</span>
   </div>
 </template>
-
-<script>
-export default {
-  name: "loadingSpiner",
-};
-</script>
-
-<style scoped></style>

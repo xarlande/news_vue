@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 const apiUrl = "https://newsapi.org/v2";
 const apiKey = "6bd4a18884a9402d81e67a053cbb9cac";
-export const useNewsHomePage = defineStore("HomeNews", {
+export const useNewsHomePage = defineStore("StoreForHome", {
   state: () => ({
     newsPopular: [],
     newsBusiness: [],
