@@ -1,4 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-headlessui"],
+  pinia: {
+    autoImports: ["defineStore"],
+  },
+  tailwindcss: {
+    viewer: false,
+  },
 });

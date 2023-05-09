@@ -11,7 +11,10 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.6.8",
+    "@pinia/nuxt": "^0.4.10",
     "@types/node": "^18",
-    "nuxt": "^3.4.3"
+    "nuxt": "^3.4.3",
+    "nuxt-headlessui": "^1.1.4"
   }
 }
