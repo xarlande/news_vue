@@ -4,7 +4,8 @@
   </NuxtLayout>
 </template>
 
-<script setup></script>
+<script setup>
+</script>
 
 <style>
 .router .router-link-active {
