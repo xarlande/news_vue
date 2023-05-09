@@ -19,9 +19,13 @@
 
 <script setup>
 import NewsSearchForm from "@/components/NewsSearch/NewsSearchForm.vue";
-import LoadingSpinner from "@/components/icon/loadingSpinner.vue";
+import LoadingSpinner from "~/components/Icon/loadingSpinner.vue";
 import NewsSearchCard from "@/components/NewsSearch/NewsSearchCard.vue";
 import { useNewsStore } from "@/stores/getNewsForSearch";
+
+useHead({
+  title: "News App - Search"
+})
 
 const store = useNewsStore();
 const { requestStoreSearch, loadingNews, newsList } = toRefs(store);

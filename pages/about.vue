@@ -28,3 +28,9 @@
     </li>
   </ul>
 </template>
+
+<script>
+useHead({
+  title: "News App - About us"
+})
+</script>

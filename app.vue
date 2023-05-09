@@ -5,9 +5,12 @@
 </template>
 
 <script setup>
+useHead({
+  title: "News App"
+})
 </script>
 
-<style>
+<style lang="css">
 .router .router-link-active {
   @apply text-blue-500 hover:text-blue-400;
 }

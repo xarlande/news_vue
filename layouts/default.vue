@@ -53,8 +53,8 @@
   </footer>
 </template>
 <script setup>
-import BurgerBtnClose from "~/components/icon/BurgerBtnClose.vue";
-import BurgerBtn from "~/components/icon/BurgerBtn.vue";
+import BurgerBtnClose from "~/components/Icon/BurgerBtnClose.vue";
+import BurgerBtn from "~/components/Icon/BurgerBtn.vue";
 
 const burgerOpen = ref(false);
 
