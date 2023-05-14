@@ -16,9 +16,12 @@
   </div>
 </template>
 <script setup>
-import { onMounted, toRefs } from "vue";
-import { useNewsHomePage } from "@/stores/getNewsForHome";
+import { useNewsHomePage } from "@/stores/getNewsForIndex";
 import NewsCategoryItem from "@/components/NewsCategory.vue";
+
+useHead({
+  title: "News App - Home",
+});
 
 const store = useNewsHomePage();
 const { newsTechnology, newsBusiness, newsPopular, newsSport } = toRefs(store);
