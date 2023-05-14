@@ -19,7 +19,7 @@
 
 <script setup>
 import NewsSearchForm from "@/components/NewsSearch/NewsSearchForm.vue";
-import LoadingSpinner from "~/components/Icon/loadingSpinner.vue";
+import LoadingSpinner from "@/components/Icon/LoadingSpinner.vue";
 import NewsSearchCard from "@/components/NewsSearch/NewsSearchCard.vue";
 import { useNewsStore } from "@/stores/getNewsForSearch";
 
