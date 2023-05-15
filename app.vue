@@ -21,6 +21,12 @@ useSeoMeta({
   author: "Velgan Bogdan",
   ogLocale: "uk-ua",
 });
+useHead({
+  htmlAttrs: {
+    lang: "ua",
+    translate: "no",
+  },
+});
 </script>
 
 <style lang="css">
