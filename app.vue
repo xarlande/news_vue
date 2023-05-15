@@ -23,8 +23,7 @@ useSeoMeta({
 });
 useHead({
   htmlAttrs: {
-    lang: "ua",
-    translate: "no",
+    lang: "uk",
   },
 });
 </script>
