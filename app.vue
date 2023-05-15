@@ -6,12 +6,17 @@
 
 <script setup>
 useHead({
-  title: "News App"
-})
+  title: "News App",
+});
 useSeoMeta({
   title: "News App",
-  author: "Velgan Bogdan"
-})
+  ogTitle: "News App",
+  description:
+    "News App – це комплексна новинна платформа, яка надає найновіші та найактуальніші новини з усього світу.",
+  ogDescription:
+    "News App – це комплексна новинна платформа, яка надає найновіші та найактуальніші новини з усього світу.",
+  author: "Velgan Bogdan",
+});
 </script>
 
 <style lang="css">
