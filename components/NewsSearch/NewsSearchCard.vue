@@ -4,9 +4,12 @@
     :key="idx"
     class="border border-gray-300 rounded my-5 p-5 shadow"
   >
-    <img
+    <nuxt-img
       v-if="item.urlToImage"
       :src="item.urlToImage"
+      sizes="sm:100vw md:50vw lg:400px"
+      format="webp"
+      quality="80"
       class="h-72 mx-auto"
       alt="image"
     />

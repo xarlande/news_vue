@@ -17,24 +17,26 @@ export const useNewsStore = defineStore("StoreForSearch", () => {
       );
     }
   };
-  const getNewsFetch = (query) => {
+  const getNewsFetch = async (query) => {
     if (query) {
-      fetch(query)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "ok") {
-            loadingNews.value = true;
-            newsList.value = [];
-            const newsData = data.articles;
-            for (const item of newsData) {
-              destructObj(item);
-            }
-            setTimeout(() => {
-              loadingNews.value = false;
-            }, 1000);
-          }
-        })
-        .catch((data) => console.log(`error ${data}`));
+      const {data} = useFetch(query)
+      console.log(data)
+      // fetch(query)
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     if (data.status === "ok") {
+      //       loadingNews.value = true;
+      //       newsList.value = [];
+      //       const newsData = data.articles;
+      //       for (const item of newsData) {
+      //         destructObj(item);
+      //       }
+      //       setTimeout(() => {
+      //         loadingNews.value = false;
+      //       }, 1000);
+      //     }
+      //   })
+      //   .catch((data) => console.log(`error ${data}`));
     }
   };
   const destructObj = (obj) => {

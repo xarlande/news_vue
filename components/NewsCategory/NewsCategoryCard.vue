@@ -7,8 +7,9 @@
       class="mx-auto"
       sizes="sm:100vw md:50vw lg:400px"
       format="webp"
+      quality="80"
       :src="itemNew.urlToImage"
-      alt="img"
+      alt="image"
     />
     <div class="my-2 text-center">
       <p>{{ itemNew.title }}</p>
