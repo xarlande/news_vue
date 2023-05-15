@@ -15,7 +15,7 @@ useSeoMeta({
   description: description,
   ogDescription: description,
   ogImage: {
-    url: "/favicon.ico",
+    url: "https://img.icons8.com/fluency/48/news.png",
     alt: "favicon",
   },
   author: "Velgan Bogdan",

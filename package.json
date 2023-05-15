@@ -11,6 +11,7 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-28059208.2abef1b",
     "@nuxtjs/tailwindcss": "^6.6.8",
     "@pinia/nuxt": "^0.4.10",
     "@types/node": "^18",

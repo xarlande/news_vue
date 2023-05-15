@@ -2,9 +2,10 @@
   <div
     class="hover:underline mx-auto border rounded relative p-3 flex flex-col justify-center"
   >
-    <img
+    <nuxt-img
       v-if="itemNew.urlToImage"
       class="mx-auto"
+      sizes="sm:100vw md:50vw lg:400px"
       :src="itemNew.urlToImage"
       alt="img"
     />
