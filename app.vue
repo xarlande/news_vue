@@ -8,6 +8,10 @@
 useHead({
   title: "News App"
 })
+useSeoMeta({
+  title: "News App",
+  author: "Velgan Bogdan"
+})
 </script>
 
 <style lang="css">
