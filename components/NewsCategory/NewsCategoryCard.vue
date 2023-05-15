@@ -6,6 +6,7 @@
       v-if="itemNew.urlToImage"
       class="mx-auto"
       sizes="sm:100vw md:50vw lg:400px"
+      format="webp"
       :src="itemNew.urlToImage"
       alt="img"
     />
