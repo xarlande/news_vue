@@ -5,17 +5,21 @@
 </template>
 
 <script setup>
-useHead({
-  title: "News App",
-});
+const title = "News App";
+const description =
+  "Комплексна новинна платформа, яка надає найновіші та найактуальніші новини з усього світу.";
+
 useSeoMeta({
-  title: "News App",
-  ogTitle: "News App",
-  description:
-    "News App – це комплексна новинна платформа, яка надає найновіші та найактуальніші новини з усього світу.",
-  ogDescription:
-    "News App – це комплексна новинна платформа, яка надає найновіші та найактуальніші новини з усього світу.",
+  title: title,
+  ogTitle: title,
+  description: description,
+  ogDescription: description,
+  ogImage: {
+    url: "/favicon.ico",
+    alt: "favicon",
+  },
   author: "Velgan Bogdan",
+  ogLocale: "uk-ua",
 });
 </script>
 

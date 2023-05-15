@@ -23,9 +23,12 @@ import LoadingSpinner from "@/components/Icon/LoadingSpinner.vue";
 import NewsSearchCard from "@/components/NewsSearch/NewsSearchCard.vue";
 import { useNewsStore } from "@/stores/getNewsForSearch";
 
-useHead({
-  title: "News App - Search"
-})
+const title = "News App - Search";
+
+useSeoMeta({
+  title: title,
+  ogTitle: title,
+});
 
 const store = useNewsStore();
 const { requestStoreSearch, loadingNews, newsList } = toRefs(store);
@@ -39,6 +42,6 @@ onMounted(() => {
 
 <style scoped>
 .spinner_flex {
-    @apply flex justify-center items-center min-h-[300px];
+  @apply flex justify-center items-center min-h-[300px];
 }
 </style>
