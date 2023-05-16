@@ -1,10 +1,10 @@
 <template>
-  <NewsSearchForm />
+  <NewsSearchForm :country="country" />
 
   <main>
     <div class="text-center cursor-default">
       <div v-if="requestStoreSearch.country">
-        Новини країни : {{ requestStoreSearch.country.toUpperCase() }}
+        Новини країни : {{ getCountryName.name }}
       </div>
       <div v-if="requestStoreSearch.query">
         Ось новини за запитом "{{ requestStoreSearch.query }}"
@@ -32,6 +32,20 @@ useSeoMeta({
 
 const store = useNewsStore();
 const { requestStoreSearch, loadingNews, newsList } = toRefs(store);
+
+const country = [
+  { id: 1, name: "Україна", IsoForm: "ua" },
+  { id: 2, name: "США", IsoForm: "us" },
+  { id: 3, name: "Німеччина", IsoForm: "de" },
+  { id: 4, name: "Польща", IsoForm: "pl" },
+];
+
+const getCountryName = computed(() => {
+  const countryStore = requestStoreSearch.value.country
+  if(countryStore){
+    return country.find(item => item.IsoForm === countryStore)
+  }
+})
 
 onMounted(() => {
   if (!newsList.value.length) {

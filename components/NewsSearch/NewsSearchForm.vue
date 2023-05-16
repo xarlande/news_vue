@@ -56,12 +56,9 @@ const store = useNewsStore();
 const { getNews } = store;
 const { newsList } = toRefs(store);
 
-const country = [
-  { id: 1, name: "Україна", IsoForm: "ua" },
-  { id: 2, name: "США", IsoForm: "us" },
-  { id: 3, name: "Німеччина", IsoForm: "de" },
-  { id: 4, name: "Польща", IsoForm: "pl" },
-];
+const props = defineProps({
+  country: Array
+})
 
 const searchInput = ref("");
 const selectedCountry = ref({});
