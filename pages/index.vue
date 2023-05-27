@@ -33,4 +33,3 @@ onMounted(() => {
   store.getAllNews();
 });
 </script>
-<style scoped></style>

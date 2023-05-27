@@ -17,7 +17,7 @@ export const useNewsStore = defineStore("StoreForSearch", () => {
       );
     }
   };
-  const getNewsFetch = async (query) => {
+  const getNewsFetch = (query) => {
     if (query) {
       fetch(query)
         .then((res) => res.json())
