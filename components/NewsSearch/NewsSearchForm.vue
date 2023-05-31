@@ -57,8 +57,8 @@ const { getNews } = store;
 const { newsList } = toRefs(store);
 
 const props = defineProps({
-  country: Array
-})
+  country: Array,
+});
 
 const searchInput = ref("");
 const selectedCountry = ref({});

@@ -8,20 +8,16 @@ export const useNewsStore = defineStore("StoreForSearch", () => {
 
   const getNews = (country, query) => {
     if (query) {
-      getNewsFetch(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`).then(
-        (item) => {
-          requestStoreSearch.value = { query };
-        }
-      );
+      requestStoreSearch.value = { query };
+      getNewsFetch(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`);
     } else if (country) {
+      requestStoreSearch.value = { country };
       getNewsFetch(
         `${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`
-      ).then((item) => {
-        requestStoreSearch.value = { country };
-      });
+      );
     }
   };
-  const getNewsFetch = async (query) => {
+  const getNewsFetch = (query) => {
     if (query) {
       fetch(query)
         .then((res) => res.json())

@@ -35,19 +35,19 @@
   </nav>
   <div>
     <main class="max-w-5xl mx-auto p-2 my-20">
-      <slot/>
+      <slot />
     </main>
   </div>
   <footer
     class="bg-gray-100 border-t border-gray-300 w-full p-2 text-right fixed z-20 bottom-0 inset-x-0"
   >
     <div class="max-w-5xl mx-auto">
-      Автор: 
+      Автор:
       <a
         target="_blank"
         class="text-blue-500 hover:text-blue-400"
         href="https://github.com/xarlande"
-      >Богдан Вельган</a
+        >Богдан Вельган</a
       >
     </div>
   </footer>
