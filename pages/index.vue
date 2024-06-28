@@ -9,13 +9,13 @@
     <NewsCategoryItem :data-card="newsBusiness" :categories-name="`Бізнес`" />
   </div>
   <div class="my-2">
-    <NewsCategoryItem :data-card="newsPopular" :categories-name="`Популярні`" />
+    <NewsCategoryItem :data-card="newsPopular.data.value?.articles" :categories-name="`Популярні`" />
   </div>
   <div class="my-2">
     <NewsCategoryItem :data-card="newsSport" :categories-name="`Спорт`" />
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useNewsHomePage } from "@/stores/getNewsForIndex";
 import NewsCategoryItem from "@/components/NewsCategory.vue";
 
@@ -27,7 +27,16 @@ useSeoMeta({
 });
 
 const store = useNewsHomePage();
-const { newsTechnology, newsBusiness, newsPopular, newsSport } = toRefs(store);
+const runtimeConfig = useRuntimeConfig()
+const { newsTechnology, newsBusiness, newsSport } = toRefs(store);
+
+const newsPopular = await useFetch<{articles: Array<any>}>('/top-headlines', {
+  baseURL: runtimeConfig.public.baseUrl,
+  query: {
+    apiKey: runtimeConfig.public.apiKey,
+    country: 'ua'
+  }
+})
 
 onMounted(() => {
   store.getAllNews();

@@ -12,4 +12,10 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
+  runtimeConfig: {
+    public: {
+      baseUrl: 'https://newsapi.org/v2',
+      apiKey: '6bd4a18884a9402d81e67a053cbb9cac',
+    }
+  }
 });
