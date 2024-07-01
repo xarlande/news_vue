@@ -27,9 +27,8 @@ useSeoMeta({
 
 const runtimeConfig = useRuntimeConfig()
 
-const newsPopular = await useInstanceFetch<{articles: Array<any>}>('/top-headlines', {
+const newsPopular = await useFetch<{articles: Array<any>}>('/api/top-headlines', {
   query: {
-    apiKey: runtimeConfig.public.apiKey,
     country: 'ua'
   },
   lazy: true
