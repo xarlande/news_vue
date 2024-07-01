@@ -31,30 +31,31 @@ const newsPopular = await useInstanceFetch<{articles: Array<any>}>('/top-headlin
   query: {
     apiKey: runtimeConfig.public.apiKey,
     country: 'ua'
-  }
+  },
+  lazy: true
 })
 
-const newsTechnology = await useInstanceFetch<{articles: Array<any>}>('/top-headlines', {
+const newsTechnology = await useFetch<{articles: Array<any>}>('/api/top-headlines', {
   query: {
-    apiKey: runtimeConfig.public.apiKey,
     country: 'ua',
     category: 'technology'
-  }
+  },
+  lazy: true
 })
 
-const newsBusiness = await useInstanceFetch<{articles: Array<any>}>('/top-headlines', {
+const newsBusiness = await useFetch<{articles: Array<any>}>('/api/top-headlines', {
   query: {
-    apiKey: runtimeConfig.public.apiKey,
     country: 'ua',
     category: 'business'
-  }
+  },
+  lazy: true
 })
 
-const newsSport = await useInstanceFetch<{articles: Array<any>}>('/top-headlines', {
+const newsSport = await useFetch<{articles: Array<any>}>('/api/top-headlines', {
   query: {
-    apiKey: runtimeConfig.public.apiKey,
     country: 'ua',
     category: 'sport'
-  }
+  },
+  lazy: true
 })
 </script>
