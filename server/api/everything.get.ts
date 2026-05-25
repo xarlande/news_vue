@@ -3,7 +3,11 @@ export default defineCachedEventHandler(
     const runtimeConfig = useRuntimeConfig();
     const query = getQuery(event);
 
-    const resp = await $instanceFetch("/top-headlines", {
+    if (!query.q) {
+      return { status: "error", message: 'Query parameter "q" is required' };
+    }
+
+    const resp = await $instanceFetch("/everything", {
       params: {
         apiKey: runtimeConfig.apiKey,
         ...query,
@@ -13,11 +17,11 @@ export default defineCachedEventHandler(
     return resp;
   },
   {
-    maxAge: 60 * 10, // 10 minutes cache
-    name: "top-headlines",
+    maxAge: 60 * 5, // 5 minutes cache for searches
+    name: "everything",
     getKey: (event) => {
       const query = getQuery(event);
-      return `top-headlines-${query.country || "ua"}-${query.category || "all"}`;
+      return `everything-${query.q}`;
     },
   },
 );

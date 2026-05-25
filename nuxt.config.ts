@@ -13,9 +13,9 @@ export default defineNuxtConfig({
     viewer: false,
   },
   runtimeConfig: {
+    apiKey: "6bd4a18884a9402d81e67a053cbb9cac",
     public: {
-      baseUrl: 'https://newsapi.org/v2',
-      apiKey: '6bd4a18884a9402d81e67a053cbb9cac',
-    }
-  }
+      baseUrl: "https://newsapi.org/v2",
+    },
+  },
 });
