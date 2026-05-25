@@ -4,24 +4,54 @@
     >
         <img
             v-if="itemNew.urlToImage"
-            class="mx-auto"
+            class="mx-auto h-48 object-cover rounded w-full"
             :src="itemNew.urlToImage"
             alt="image"
             loading="lazy"
+            @error="
+                (e) => (e.target.src = 'https://placehold.co/600x400?text=News')
+            "
         />
-        <div class="my-2 text-center">
-            <p>{{ itemNew.title }}</p>
+        <div
+            v-else
+            class="h-48 bg-gray-200 flex items-center justify-center rounded w-full"
+        >
+            <span class="text-gray-400 italic">Фото відсутнє</span>
+        </div>
+        <div class="my-2 text-center flex-grow">
+            <p class="font-semibold">{{ itemNew.title }}</p>
+        </div>
+        <div class="mt-auto text-xs text-gray-500 flex justify-between">
+            <span>{{ formattedDate }}</span>
+            <span>{{ formattedTime }}</span>
         </div>
         <a class="inset-0 absolute" :href="itemNew.url" target="_blank"> </a>
     </div>
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
     itemNew: {
         type: Object,
-        default: () => {},
+        default: () => ({}),
     },
+});
+
+const formattedDate = computed(() => {
+    if (!props.itemNew.publishedAt) return "";
+    return new Intl.DateTimeFormat("uk-UA", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    }).format(new Date(props.itemNew.publishedAt));
+});
+
+const formattedTime = computed(() => {
+    if (!props.itemNew.publishedAt) return "";
+    return new Intl.DateTimeFormat("uk-UA", {
+        hour: "2-digit",
+        minute: "2-digit",
+    }).format(new Date(props.itemNew.publishedAt));
 });
 </script>
 

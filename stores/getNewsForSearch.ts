@@ -38,10 +38,7 @@ export const useNewsStore = defineStore("StoreForSearch", () => {
         await getNewsFetch(`/api/top-headlines`, { country });
       }
     } finally {
-      // Keep loading for at least 500ms for better UX if it was too fast
-      setTimeout(() => {
-        loadingNews.value = false;
-      }, 500);
+      loadingNews.value = false;
     }
   };
 
@@ -50,22 +47,32 @@ export const useNewsStore = defineStore("StoreForSearch", () => {
       const data = await $fetch<NewsResponse>(url, { params });
 
       if (data.status === "ok") {
-        newsList.value = [];
-        const newsData = data.articles;
-        for (const item of newsData) {
-          destructObj(item);
-        }
+        const dateFormatter = new Intl.DateTimeFormat("uk-UA", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        });
+
+        const timeFormatter = new Intl.DateTimeFormat("uk-UA", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        newsList.value = data.articles.map((item) => {
+          const dateObj = new Date(item.publishedAt);
+          return {
+            title: item.title,
+            url: item.url,
+            urlToImage: item.urlToImage,
+            description: item.description,
+            data: dateFormatter.format(dateObj),
+            time: timeFormatter.format(dateObj),
+          };
+        });
       }
     } catch (error) {
       console.error(`Fetch error:`, error);
     }
-  };
-
-  const destructObj = (obj: NewsArticle) => {
-    const { title, url, urlToImage, publishedAt, description } = obj;
-    const [data, timeNoFormat] = publishedAt.split("T");
-    const time = timeNoFormat ? timeNoFormat.slice(0, -1) : "";
-    newsList.value.push({ title, url, urlToImage, data, time, description });
   };
 
   return { newsList, loadingNews, requestStoreSearch, getNews };

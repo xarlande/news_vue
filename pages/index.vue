@@ -3,24 +3,28 @@
         <NewsCategoryItem
             :data-card="newsTechnology.data.value?.articles"
             :categories-name="`Технології`"
+            :pending="newsTechnology.pending.value"
         />
     </div>
     <div class="my-2">
         <NewsCategoryItem
             :data-card="newsBusiness.data.value?.articles"
             :categories-name="`Бізнес`"
+            :pending="newsBusiness.pending.value"
         />
     </div>
     <div class="my-2">
         <NewsCategoryItem
             :data-card="newsPopular.data.value?.articles"
             :categories-name="`Популярні`"
+            :pending="newsPopular.pending.value"
         />
     </div>
     <div class="my-2">
         <NewsCategoryItem
             :data-card="newsSport.data.value?.articles"
             :categories-name="`Спорт`"
+            :pending="newsSport.pending.value"
         />
     </div>
 </template>

@@ -7,10 +7,19 @@
         <img
             v-if="item.urlToImage"
             :src="item.urlToImage"
-            class="h-72 mx-auto"
+            class="h-72 mx-auto object-cover rounded w-full"
             alt="image"
             loading="lazy"
+            @error="
+                (e) => (e.target.src = 'https://placehold.co/600x400?text=News')
+            "
         />
+        <div
+            v-else
+            class="h-72 bg-gray-200 flex items-center justify-center rounded w-full"
+        >
+            <span class="text-gray-400 italic">Фото відсутнє</span>
+        </div>
         <div class="flex flex-col">
             <h2 class="my-3 text-center text-lg">
                 {{ item.title }}
@@ -20,19 +29,15 @@
                 {{ item.description }}
             </p>
 
-            <div class="flex flex-col md:flex-row justify-between mr-3 gap-2">
-                <div class="text-center cursor-default">
-                    <p>Час публікації: {{ item.time }}</p>
-                    <p>Дата публікації: {{ item.data }}</p>
+            <div
+                class="mt-4 flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+                <div class="text-sm text-gray-500 italic">
+                    {{ item.data }} • {{ item.time }}
                 </div>
-                <div class="flex justify-end">
-                    <a
-                        class="global_button"
-                        v-bind:href="item.url"
-                        target="_blank"
-                        >Посилання</a
-                    >
-                </div>
+                <a class="global_button" :href="item.url" target="_blank"
+                    >Читати далі</a
+                >
             </div>
         </div>
     </article>
