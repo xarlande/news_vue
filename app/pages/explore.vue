@@ -70,7 +70,7 @@ const articles = computed(() => data.value?.articles || []);
                     />
                     <USelect
                         v-model="sortBy"
-                        :options="sortOptions"
+                        :items="sortOptions"
                         size="xl"
                         variant="none"
                         class="w-full md:w-56 bg-gray-50 dark:bg-gray-800 rounded-2xl px-4"
@@ -138,9 +138,9 @@ const articles = computed(() => data.value?.articles || []);
 
                     <div class="flex justify-center pt-8">
                         <UPagination
-                            v-model="page"
-                            :total="Math.min(data.totalResults || 0, 100)"
-                            :page-count="12"
+                            v-model:page="page"
+                            :total="Math.min(data?.totalResults || 0, 100)"
+                            :items-per-page="12"
                             size="lg"
                             class="rounded-full shadow-sm"
                         />

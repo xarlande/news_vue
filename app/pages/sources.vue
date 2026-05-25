@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const categories = [
-    { label: "Усі категорії", value: "" },
+    { label: "Усі категорії", value: null },
     { label: "Бізнес", value: "business" },
     { label: "Розваги", value: "entertainment" },
     { label: "Загальне", value: "general" },
@@ -10,7 +10,7 @@ const categories = [
     { label: "Технології", value: "technology" },
 ];
 
-const selectedCategory = ref("");
+const selectedCategory = ref(null);
 
 const { data, pending, error } = await useFetch("/api/sources", {
     query: {
@@ -41,7 +41,7 @@ const sources = computed(() => data.value?.sources || []);
 
                     <USelect
                         v-model="selectedCategory"
-                        :options="categories"
+                        :items="categories"
                         size="xl"
                         variant="none"
                         class="w-full md:w-72 bg-white dark:bg-gray-900 rounded-2xl px-4 shadow-sm border border-gray-100 dark:border-gray-800"
